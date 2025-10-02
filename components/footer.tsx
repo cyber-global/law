@@ -88,6 +88,7 @@ export function Footer() {
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
                   <Link
+                    // @ts-ignore - Next.js Link href typing issue
                     href={link.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
@@ -105,6 +106,7 @@ export function Footer() {
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
+                    // @ts-ignore - Next.js Link href typing issue
                     href={link.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
@@ -122,6 +124,7 @@ export function Footer() {
               {footerLinks.legal.map((link) => (
                 <li key={link.href}>
                   <Link
+                    // @ts-ignore - Next.js Link href typing issue
                     href={link.href}
                     className="text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
