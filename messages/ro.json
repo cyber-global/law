@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "Despre",
+    "cybersecurity": "Securitate Cibernetică",
+    "services": "Servicii",
+    "partners": "Parteneri",
+    "contact": "Contact"
+  },
+  "cta": {
+    "call247": "Apelați 24/7",
+    "call247Hotline": "Apelați Linia de Urgență 24/7",
+    "call247Emergency": "Urgență 24/7",
+    "bookConsult": "Rezervați o Consultație",
+    "book30Min": "Rezervați o Consultație de 30 de Minute",
+    "talkToCounsel": "Discutați cu un Avocat",
+    "requestReadiness": "Solicitați o Sesiune de Pregătire",
+    "getStarted": "Începeți",
+    "learnMore": "Aflați Mai Mult",
+    "viewServices": "Vedeți Serviciile Noastre",
+    "getInTouch": "Luați Legătura",
+    "sendMessage": "Trimiteți Mesaj"
+  },
+  "hero": {
+    "headline": "Când riscul cibernetic devine juridic, viteza și apărarea contează.",
+    "subheadline": "CyberGlobal Law ajută CISOii și Consilierii Juridici să gestioneze incidente, regulatori și contracte transfrontaliere—24/7."
+  },
+  "empathy": {
+    "title": "Suntem Sub Presiune. Înțelegem.",
+    "description": "Sunteți sub presiune să acționați rapid, să informați persoanele potrivite și să evitați divulgarea excesivă. Am ajutat organizații din SaaS, finanțe, sănătate și infrastructură critică să navigheze incidente și audituri cu pași calmi, clari și un istoric defensibil."
+  },
+  "steps": {
+    "title": "Cum Funcționăm: 3 Pași Clari",
+    "step1Title": "Apelați",
+    "step1Desc": "Conectați-vă cu avocatul pentru încălcări acum.",
+    "step2Title": "Stabilizați",
+    "step2Desc": "Fapte privilegiate, domeniu și notificări.",
+    "step3Title": "Rezolvați",
+    "step3Desc": "Închideți cu dovezi pregătite pentru regulator."
+  },
+  "services": {
+    "title": "Cum Vă Ajutăm",
+    "subtitle": "Cinci domenii de practică principale care acoperă ciclul complet al provocărilor juridice cibernetice",
+    "ourServices": "Serviciile Noastre"
+  },
+  "stakes": {
+    "title": "Ce Este În Joc",
+    "ifMishandled": "Dacă Este Gestionat Greșit",
+    "ifDoneRight": "Dacă Este Făcut Corect"
+  },
+  "faqs": {
+    "title": "Întrebări Frecvente"
+  },
+  "finalCta": {
+    "title": "Pregătiți Când Aveți Nevoie De Noi",
+    "subtitle": "Fie că vă confruntați cu un incident activ sau planificați în avans, suntem aici pentru a ajuta.",
+    "responseSla": "SLA de Răspuns:",
+    "slaDetails": "Apel înapoi în 30 de minute pentru incidente · Ziua lucrătoare următoare pentru consultații"
+  },
+  "footer": {
+    "description": "Cabinet boutique de drept cibernetic cu răspuns la incidente 24/7 și conformitate proactivă în UE (GDPR/NIS2/DORA/eIDAS2) și activitate transfrontalieră.",
+    "servicesTitle": "Servicii",
+    "companyTitle": "Companie",
+    "legalTitle": "Legal",
+    "copyright": "© {year} CyberGlobal Law. Toate drepturile rezervate.",
+    "barStatement": "Licențiat să practice dreptul în [Jurisdicție]. Membru al Baroului: [Asociația Baroului].",
+    "privacy": "Politica de Confidențialitate",
+    "terms": "Termeni și Condiții"
+  },
+  "contact": {
+    "title": "Contactați-ne",
+    "subtitle": "Luați legătura pentru răspuns la incidente 24/7, consultații sau întrebări generale.",
+    "hotlineTitle": "Apelați Linia de Urgență 24/7",
+    "hotlineSla": "SLA de Răspuns:",
+    "hotlineSlaDetails": "Apel înapoi în 30 de minute, 24/7/365",
+    "formTitle": "Trimiteți-ne un Mesaj",
+    "formSubtitle": "Pentru întrebări neurgente, vă rugăm să utilizați formularul de mai jos. Vom răspunde în 1 zi lucrătoare.",
+    "bookingTitle": "Rezervați o Consultație",
+    "bookingSubtitle": "Programați o consultație de 30 de minute pentru a discuta despre conformitate, contracte, planificare de răspuns la incidente sau chestiuni de reglementare.",
+    "officeTitle": "Informații Despre Birou",
+    "confidentialityTitle": "Notă de Confidențialitate:",
+    "confidentialityText": "Trimiterea acestui formular nu creează o relație avocat-client. Vă rugăm să nu includeți informații confidențiale sau sensibile până când confirmăm reprezentarea printr-o scrisoare de angajament."
+  },
+  "form": {
+    "name": "Nume",
+    "email": "Email",
+    "company": "Companie",
+    "role": "Rol",
+    "phone": "Telefon",
+    "jurisdiction": "Jurisdicție",
+    "topic": "Subiect",
+    "message": "Mesaj",
+    "required": "Obligatoriu",
+    "sending": "Se trimite...",
+    "successMessage": "Vă mulțumim pentru mesaj! Vom răspunde în 1 zi lucrătoare.",
+    "errorMessage": "Ceva nu a mers bine. Vă rugăm să încercați din nou."
+  },
+  "cookie": {
+    "title": "Respectam confidentialitatea dvs.",
+    "description": "Folosim cookie-uri pentru a imbunatati experienta de navigare, a analiza traficul pe site si a oferi continut personalizat. Facand clic pe \"Acceptati Toate\", consimtiti la utilizarea cookie-urilor noastre.",
+    "learnMore": "Aflati mai multe",
+    "acceptAll": "Acceptati Toate",
+    "necessaryOnly": "Doar Necesare"
+  },
+  "common": {
+    "loading": "Se încarcă...",
+    "error": "A apărut o eroare",
+    "submit": "Trimite",
+    "close": "Închide",
+    "readMore": "Citiți Mai Mult"
+  }
+}
+

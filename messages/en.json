@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "about": "About",
+    "cybersecurity": "Cybersecurity",
+    "services": "Services",
+    "partners": "Partners",
+    "contact": "Contact"
+  },
+  "cta": {
+    "call247": "Call 24/7",
+    "call247Hotline": "Call the 24/7 Incident Hotline",
+    "call247Emergency": "24/7 Emergency",
+    "bookConsult": "Book a Consultation",
+    "book30Min": "Book a 30-min Consultation",
+    "talkToCounsel": "Talk to Counsel",
+    "requestReadiness": "Request a Readiness Session",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "viewServices": "View Our Services",
+    "getInTouch": "Get in Touch",
+    "sendMessage": "Send Message"
+  },
+  "hero": {
+    "headline": "When cyber risk turns legal, speed and defensibility matter.",
+    "subheadline": "CyberGlobal Law helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
+  },
+  "empathy": {
+    "title": "You're Under Pressure. We Get It.",
+    "description": "You're under pressure to act fast, inform the right people, and avoid over-disclosure. We've helped organizations across SaaS, finance, healthcare, and critical infrastructure navigate incidents and audits with calm, clear steps and a defensible record."
+  },
+  "steps": {
+    "title": "How We Work: 3 Clear Steps",
+    "step1Title": "Call",
+    "step1Desc": "Connect with breach counsel now.",
+    "step2Title": "Stabilize",
+    "step2Desc": "Privileged facts, scope, and notifications.",
+    "step3Title": "Resolve",
+    "step3Desc": "Close out with regulator-ready evidence."
+  },
+  "services": {
+    "title": "How We Help",
+    "subtitle": "Five core practice areas covering the full lifecycle of cyber-legal challenges",
+    "ourServices": "Our Services"
+  },
+  "stakes": {
+    "title": "What's at Stake",
+    "ifMishandled": "If Mishandled",
+    "ifDoneRight": "If Done Right"
+  },
+  "faqs": {
+    "title": "Frequently Asked Questions"
+  },
+  "finalCta": {
+    "title": "Ready When You Need Us",
+    "subtitle": "Whether you're facing an active incident or planning ahead, we're here to help.",
+    "responseSla": "Response SLA:",
+    "slaDetails": "30-minute callback for incidents · Next business day for consultations"
+  },
+  "footer": {
+    "description": "Boutique Cyber Law practice with 24/7 incident response and proactive compliance across EU (GDPR/NIS2/DORA/eIDAS2) and cross-border work.",
+    "servicesTitle": "Services",
+    "companyTitle": "Company",
+    "legalTitle": "Legal",
+    "copyright": "© {year} CyberGlobal Law. All rights reserved.",
+    "barStatement": "Licensed to practice law in [Jurisdiction]. Bar membership: [Bar Association].",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in touch for 24/7 incident response, consultations, or general inquiries.",
+    "hotlineTitle": "Call Our 24/7 Incident Hotline",
+    "hotlineSla": "Response SLA:",
+    "hotlineSlaDetails": "Callback within 30 minutes, 24/7/365",
+    "formTitle": "Send Us a Message",
+    "formSubtitle": "For non-urgent inquiries, please use the form below. We'll respond within 1 business day.",
+    "bookingTitle": "Book a Consultation",
+    "bookingSubtitle": "Schedule a 30-minute consultation to discuss compliance, contracts, incident response planning, or regulatory matters.",
+    "officeTitle": "Office Information",
+    "confidentialityTitle": "Confidentiality Notice:",
+    "confidentialityText": "Submitting this form does not create an attorney-client relationship. Please do not include confidential or sensitive information until we confirm representation via an engagement letter."
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "role": "Role",
+    "phone": "Phone",
+    "jurisdiction": "Jurisdiction",
+    "topic": "Topic",
+    "message": "Message",
+    "required": "Required",
+    "sending": "Sending...",
+    "successMessage": "Thank you for your message! We'll respond within 1 business day.",
+    "errorMessage": "Something went wrong. Please try again."
+  },
+  "cookie": {
+    "title": "We value your privacy",
+    "description": "We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. By clicking \"Accept All\", you consent to our use of cookies.",
+    "learnMore": "Learn more",
+    "acceptAll": "Accept All",
+    "necessaryOnly": "Necessary Only"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "submit": "Submit",
+    "close": "Close",
+    "readMore": "Read More"
+  }
+}
+
