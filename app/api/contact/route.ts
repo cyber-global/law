@@ -3,7 +3,7 @@ import { contactFormSchema } from '@/lib/validators';
 import { sendContactEmail, sendConfirmationEmail } from '@/lib/mail';
 import { sendSlackNotification } from '@/lib/slack';
 import { checkRateLimit } from '@/lib/rate-limit';
-import UAParser from 'ua-parser-js';
+import { UAParser } from 'ua-parser-js';
 
 /**
  * POST /api/contact

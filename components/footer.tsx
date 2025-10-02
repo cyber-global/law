@@ -7,7 +7,11 @@ import { HotlineBadge } from './hotline-badge';
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const footerLinks = {
+  const footerLinks: {
+    services: Array<{ label: string; href: string }>;
+    company: Array<{ label: string; href: string }>;
+    legal: Array<{ label: string; href: string }>;
+  } = {
     services: [
       { label: 'Incident Response', href: '/services#incident-response' },
       { label: 'Regulatory Compliance', href: '/services#compliance' },
