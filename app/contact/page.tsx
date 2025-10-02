@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SkipLink } from '@/components/skip-link';
@@ -13,7 +14,8 @@ import { useSearchParams } from 'next/navigation';
 import type { ContactFormData } from '@/lib/validators';
 import { generateLegalServiceSchema } from '@/lib/seo';
 
-export default function ContactPage() {
+// Component that uses search params - needs to be wrapped in Suspense
+function ContactContent() {
   const searchParams = useSearchParams();
   const topic = (searchParams.get('topic') as ContactFormData['topic']) || 'other';
   const name = searchParams.get('name') || undefined;
@@ -277,6 +279,34 @@ export default function ContactPage() {
       <Footer />
       <CookieBanner />
     </>
+  );
+}
+
+// Loading component for Suspense fallback
+function ContactLoading() {
+  return (
+    <>
+      <SkipLink />
+      <Header />
+      <main className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl font-bold text-foreground mb-4">Loading Contact Page...</h1>
+            <p className="text-muted-foreground">Please wait while we load the page.</p>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+// Main page component with Suspense boundary
+export default function ContactPage() {
+  return (
+    <Suspense fallback={<ContactLoading />}>
+      <ContactContent />
+    </Suspense>
   );
 }
 
