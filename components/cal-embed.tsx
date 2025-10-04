@@ -33,7 +33,7 @@ interface CalEmbedProps {
  * - notes: Additional notes
  */
 export function CalEmbed({ 
-  calLink = 'cyberglobal-law/consultation', 
+  calLink = process.env.NEXT_PUBLIC_CALCOM_LINK || 'cyberglobal-law/30min', 
   variant = 'inline',
   className,
   prefill,

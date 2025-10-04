@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { Phone, Mail, MapPin, Linkedin, Twitter } from 'lucide-react';
+import Image from 'next/image';
+import { Phone, Mail, MapPin, Linkedin } from 'lucide-react';
 import { HotlineBadge } from './hotline-badge';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  // Fixed year to prevent hydration mismatch
+  const currentYear = 2024;
 
   const footerLinks: {
     services: Array<{ label: string; href: string }>;
@@ -32,8 +34,7 @@ export function Footer() {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-    { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/cyberlgl/', label: 'LinkedIn' },
   ];
 
   return (
@@ -43,12 +44,17 @@ export function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block">
-              <div className="font-display text-2xl font-bold text-primary">
-                CyberGlobal<span className="text-accent">Law</span>
-              </div>
+              <Image 
+                src="/white logo no background.png"
+                alt="CyberLegal"
+                width={200}
+                height={60}
+                className="h-16 w-auto"
+                priority
+              />
             </Link>
             <p className="mt-4 max-w-md text-sm text-muted-foreground">
-              Boutique Cyber Law practice with 24/7 incident response and proactive compliance 
+              Specialized CyberLegal practice with 24/7 incident response and proactive compliance 
               across EU (GDPR/NIS2/DORA/eIDAS2) and cross-border work.
             </p>
 
@@ -139,7 +145,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} CyberGlobal Law. All rights reserved.
+            © {currentYear} CyberLegal. All rights reserved.
           </p>
 
           {/* Social links */}
@@ -164,7 +170,7 @@ export function Footer() {
 
         {/* Bar membership statement */}
         <div className="mt-6 text-center text-xs text-muted-foreground">
-          Licensed to practice law in [Jurisdiction]. Bar membership: [Bar Association].
+          Licensed to practice law Internationally.
         </div>
       </div>
     </footer>

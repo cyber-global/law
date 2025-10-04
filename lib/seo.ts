@@ -1,9 +1,9 @@
 import { DefaultSeoProps } from 'next-seo';
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
-export const SITE_NAME = 'CyberGlobal Law';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
+export const SITE_NAME = 'CyberLegal';
 export const SITE_DESCRIPTION = 
-  'Boutique Cyber Law practice with 24/7 incident response and proactive compliance across EU (GDPR/NIS2/DORA/eIDAS2) and cross-border work.';
+  'Specialized CyberLegal practice with 24/7 incident response and proactive compliance across EU (GDPR/NIS2/DORA/eIDAS2) and cross-border work.';
 
 export const defaultSEOConfig: DefaultSeoProps = {
   defaultTitle: `${SITE_NAME} - When cyber risk turns legal, speed and defensibility matter`,
@@ -78,7 +78,7 @@ export const defaultSEOConfig: DefaultSeoProps = {
   additionalLinkTags: [
     {
       rel: 'icon',
-      href: '/favicon.ico',
+      href: '/icon.ico',
     },
     {
       rel: 'manifest',
@@ -97,7 +97,7 @@ export function generateLegalServiceSchema() {
     name: SITE_NAME,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    logo: `${SITE_URL}/white logo no background.png`,
     image: `${SITE_URL}/og-image.jpg`,
     telephone: '+40745304772', // Placeholder
     priceRange: '$$$',
@@ -157,7 +157,7 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
+    logo: `${SITE_URL}/white logo no background.png`,
     description: SITE_DESCRIPTION,
     contactPoint: {
       '@type': 'ContactPoint',

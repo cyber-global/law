@@ -6,19 +6,19 @@ import { Scale, AlertTriangle, Info } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import type { Metadata } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
-  description: 'Terms and conditions for using the CyberGlobal Law website. Important disclaimers about legal advice and attorney-client relationships.',
+  description: 'Terms and conditions for using the CyberLegal website. Important disclaimers about legal advice and attorney-client relationships.',
   alternates: {
     canonical: `${baseUrl}/legal/terms`,
   },
   openGraph: {
-    title: 'Terms of Use | CyberGlobal Law',
+    title: 'Terms of Use | CyberLegal',
     description: 'Terms and conditions for using our website.',
     url: `${baseUrl}/legal/terms`,
-    siteName: 'CyberGlobal Law',
+    siteName: 'CyberLegal',
     images: [
       {
         url: `${baseUrl}/api/og?title=Terms of Use&subtitle=Website terms and conditions&page=terms`,
@@ -50,7 +50,7 @@ export default function TermsPage() {
                 Terms of Use
               </h1>
               <p className="mt-6 text-lg text-white/90">
-                Terms and conditions for using the CyberGlobal Law website
+                Terms and conditions for using the CyberLegal website
               </p>
               <p className="mt-4 text-sm text-white/80">
                 <strong>Last Updated:</strong> October 1, 2025
@@ -124,7 +124,7 @@ export default function TermsPage() {
               <p>For questions about how we process your personal data:</p>
               <div className="mt-4 rounded-lg border border-border bg-card p-6">
                 <p><strong>DPO:</strong> [Name / Email]</p>
-                <p className="mt-2"><strong>Email:</strong> <a href="mailto:privacy@cybergloballaw.com" className="text-primary hover:underline">privacy@cybergloballaw.com</a></p>
+                <p className="mt-2"><strong>Email:</strong> <a href="mailto:privacy@cyberlgl.com" className="text-primary hover:underline">privacy@cyberlgl.com</a></p>
                 <p className="mt-2">See our <a href="/legal/privacy" className="text-primary hover:underline">Privacy Policy</a> for full details on data processing.</p>
               </div>
             </section>
@@ -152,15 +152,15 @@ export default function TermsPage() {
               <h2 className="font-display text-3xl font-bold">5. Contact Us</h2>
               <p>If you have questions about these Terms of Use:</p>
               <div className="mt-4 rounded-lg border border-border bg-card p-6">
-                <p><strong>Email:</strong> <a href="mailto:legal@cybergloballaw.com" className="text-primary hover:underline">legal@cybergloballaw.com</a><br />
+                <p><strong>Email:</strong> <a href="mailto:legal@cyberlgl.com" className="text-primary hover:underline">legal@cyberlgl.com</a><br />
                 <strong>Phone:</strong> <a href="tel:+40745304772" className="text-primary hover:underline">+40 745 304 772</a><br />
-                <strong>Mail:</strong> CyberGlobal Law, [Street Address], [City, Postal Code], [Country]</p>
+                <strong>Mail:</strong> CyberGlobal Law LTD, [Street Address], [City, Postal Code], [Country]</p>
               </div>
             </section>
 
             <div className="mt-12 text-center text-sm text-muted-foreground">
               <p><strong>Last Updated:</strong> October 1, 2025</p>
-              <p className="mt-2">© 2025 CyberGlobal Law. All rights reserved.</p>
+              <p className="mt-2">© 2025 CyberLegal. All rights reserved.</p>
             </div>
           </div>
         </article>

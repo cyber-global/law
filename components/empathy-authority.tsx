@@ -3,10 +3,10 @@ import { SectionContainer, SectionHeader } from './section-container';
 
 export function EmpathyAuthority() {
   const credentials = [
-    { icon: Award, label: '15+ years', description: 'Combined experience in cyber law' },
-    { icon: Shield, label: '50+ incidents', description: 'Managed across EU, UK, US' },
+    { icon: Award, label: '7+ years', description: 'Combined experience in cyber law' },
+    { icon: Shield, label: '30+ incidents', description: 'Managed across EU, UK, US and GCC' },
     { icon: Clock, label: 'Panel counsel', description: 'For leading cyber insurers' },
-    { icon: Globe, label: 'Multi-lingual', description: 'English, Romanian, French' },
+    { icon: Globe, label: 'Multi-lingual', description: 'Multilingual support' },
   ];
 
   return (

@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
 
     // Get parameters
-    const title = searchParams.get('title') || 'CyberGlobal Law';
+    const title = searchParams.get('title') || 'CyberLegal';
     const subtitle = searchParams.get('subtitle') || 'When cyber risk turns legal, speed and defensibility matter';
     const page = searchParams.get('page') || 'home';
 
@@ -56,8 +56,8 @@ export async function GET(request: NextRequest) {
               zIndex: 1,
             }}
           >
-            <span style={{ color: '#FFFFFF' }}>CyberGlobal</span>
-            <span style={{ color: '#22D3EE' }}>Law</span>
+            <span style={{ color: '#FFFFFF' }}>Cyber</span>
+            <span style={{ color: '#22D3EE' }}>Legal</span>
           </div>
 
           {/* Main Content */}

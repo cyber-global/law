@@ -1,16 +1,14 @@
-import { Hero, AlertBar, SkipLink, Header, Footer, CookieBanner } from '@/components';
 
 export default function HomePage() {
   return (
     <>
       <SkipLink />
-      <AlertBar />
       <Header />
       
       <main id="main-content">
         <Hero
           headline="When cyber risk turns legal, speed and defensibility matter."
-          subheadline="CyberGlobal Law helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
+          subheadline="CyberLegal helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
           primaryCTA={{
             text: 'Call the 24/7 Incident Hotline',
             href: 'tel:+0000000000',
@@ -26,7 +24,7 @@ export default function HomePage() {
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="container mx-auto px-4 md:px-8 text-center">
             <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl">
-              Welcome to CyberGlobal Law
+              Welcome to CyberLegal
             </h2>
             <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
               Your complete cyber law platform is being built. All components, content, and integrations are ready!

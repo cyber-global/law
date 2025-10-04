@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: {
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     images: [
       {
-        url: '/api/og?title=CyberGlobal Law&subtitle=When cyber risk turns legal, speed and defensibility matter&page=home',
+        url: '/api/og?title=CyberLegal&subtitle=When cyber risk turns legal, speed and defensibility matter&page=home',
         width: 1200,
         height: 630,
         alt: SITE_NAME,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${SITE_NAME} - When cyber risk turns legal, speed and defensibility matter`,
     description: SITE_DESCRIPTION,
-    images: ['/api/og?title=CyberGlobal Law&subtitle=When cyber risk turns legal, speed and defensibility matter&page=home'],
+    images: ['/api/og?title=CyberLegal&subtitle=When cyber risk turns legal, speed and defensibility matter&page=home'],
   },
   robots: {
     index: true,
@@ -79,14 +79,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${lexend.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          forcedTheme="dark"
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

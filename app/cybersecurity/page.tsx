@@ -5,11 +5,11 @@ import { CookieBanner } from '@/components/cookie-banner';
 import { SectionContainer, SectionHeader } from '@/components/section-container';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Users, Network, ArrowRight, CheckCircle } from 'lucide-react';
+import { Shield, Users, Network, ArrowRight, CheckCircle, Calendar } from 'lucide-react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: 'Cybersecurity & EU Regulations',
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     canonical: `${baseUrl}/cybersecurity`,
   },
   openGraph: {
-    title: 'Cybersecurity & EU Regulations | CyberGlobal Law',
+    title: 'Cybersecurity & EU Regulations | CyberLegal',
     description: 'Plain-English explainers for GDPR, NIS2, DORA, eIDAS2, and how legal and technical teams work together.',
     url: `${baseUrl}/cybersecurity`,
-    siteName: 'CyberGlobal Law',
+    siteName: 'CyberLegal',
     images: [
       {
         url: `${baseUrl}/api/og?title=Cybersecurity %26 EU Regulations&subtitle=GDPR • NIS2 • DORA • eIDAS2&page=cybersecurity`,
@@ -361,24 +361,16 @@ export default function CybersecurityPage() {
                 </div>
               </div>
 
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <div className="mt-10 flex justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl"
+                  className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl font-semibold px-8"
                 >
                   <Link href="/contact?topic=readiness">
+                    <Calendar className="mr-2 h-5 w-5" />
                     Request a Readiness Session
-                    <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all"
-                >
-                  <Link href="tel:+40745304772">Call 24/7 Hotline</Link>
                 </Button>
               </div>
             </div>

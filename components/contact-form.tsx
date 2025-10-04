@@ -12,7 +12,7 @@ import { contactFormSchema, type ContactFormData } from '@/lib/validators';
 import { cn } from '@/lib/utils';
 
 interface ContactFormProps {
-  defaultTopic?: ContactFormData['topic'];
+  defaultTopic?: string;
   className?: string;
 }
 
@@ -28,9 +28,6 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
     formState: { errors },
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      topic: defaultTopic,
-    },
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -44,7 +41,10 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          topic: defaultTopic, // Use the default topic passed from parent
+        }),
       });
 
       if (!response.ok) {
@@ -60,11 +60,9 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
         setSubmitStatus('idle');
       }, 5000);
     } catch (error) {
-      console.error('Form submission error:', error);
+      console.error('Contact form error:', error);
       setSubmitStatus('error');
-      setErrorMessage(
-        error instanceof Error ? error.message : 'Something went wrong. Please try again.'
-      );
+      setErrorMessage(error instanceof Error ? error.message : 'An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -74,7 +72,7 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
     <form onSubmit={handleSubmit(onSubmit)} className={cn('space-y-6', className)}>
       {/* Success Message */}
       {submitStatus === 'success' && (
-        <Alert className="bg-success/10 text-success border-success/20">
+        <Alert className="bg-emerald-500/10 text-emerald-400 border-emerald-500/20">
           <CheckCircle2 className="h-4 w-4" />
           <AlertDescription>
             Thank you for your message! We'll respond within 1 business day.
@@ -92,174 +90,98 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
       {/* Name (Required) */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Name <span className="text-destructive">*</span>
+          Name <span className="text-red-400">*</span>
         </label>
         <Input
           id="name"
           type="text"
           {...register('name')}
           placeholder="Your full name"
-          className={cn(errors.name && 'border-destructive focus-visible:ring-destructive')}
+          className={cn(
+            'bg-white/5 border-white/10 text-white placeholder:text-slate-400 focus:border-cyan-400',
+            errors.name && 'border-red-400 focus:border-red-400'
+          )}
           disabled={isSubmitting}
         />
         {errors.name && (
-          <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
+          <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
         )}
       </div>
 
       {/* Email (Required) */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
-          Email <span className="text-destructive">*</span>
+          Email <span className="text-red-400">*</span>
         </label>
         <Input
           id="email"
           type="email"
           {...register('email')}
           placeholder="your.email@company.com"
-          className={cn(errors.email && 'border-destructive focus-visible:ring-destructive')}
+          className={cn(
+            'bg-white/5 border-white/10 text-white placeholder:text-slate-400 focus:border-cyan-400',
+            errors.email && 'border-red-400 focus:border-red-400'
+          )}
           disabled={isSubmitting}
         />
         {errors.email && (
-          <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
+          <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
         )}
       </div>
 
-      {/* Company & Role (Side by side on desktop) */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="company" className="block text-sm font-medium mb-2">
-            Company
-          </label>
-          <Input
-            id="company"
-            type="text"
-            {...register('company')}
-            placeholder="Company name"
-            disabled={isSubmitting}
-          />
-          {errors.company && (
-            <p className="mt-1 text-sm text-destructive">{errors.company.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="role" className="block text-sm font-medium mb-2">
-            Role
-          </label>
-          <Input
-            id="role"
-            type="text"
-            {...register('role')}
-            placeholder="e.g., CISO, General Counsel"
-            disabled={isSubmitting}
-          />
-          {errors.role && (
-            <p className="mt-1 text-sm text-destructive">{errors.role.message}</p>
-          )}
-        </div>
-      </div>
-
-      {/* Phone & Jurisdiction */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium mb-2">
-            Phone
-          </label>
-          <Input
-            id="phone"
-            type="tel"
-            {...register('phone')}
-            placeholder="+40 123 456 789"
-            disabled={isSubmitting}
-          />
-          {errors.phone && (
-            <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="jurisdiction" className="block text-sm font-medium mb-2">
-            Jurisdiction
-          </label>
-          <Input
-            id="jurisdiction"
-            type="text"
-            {...register('jurisdiction')}
-            placeholder="e.g., Romania, EU"
-            disabled={isSubmitting}
-          />
-          {errors.jurisdiction && (
-            <p className="mt-1 text-sm text-destructive">{errors.jurisdiction.message}</p>
-          )}
-        </div>
-      </div>
-
-      {/* Topic (Required) */}
+      {/* Company (Required) */}
       <div>
-        <label htmlFor="topic" className="block text-sm font-medium mb-2">
-          Topic <span className="text-destructive">*</span>
+        <label htmlFor="company" className="block text-sm font-medium mb-2">
+          Company <span className="text-red-400">*</span>
         </label>
-        <select
-          id="topic"
-          {...register('topic')}
+        <Input
+          id="company"
+          type="text"
+          {...register('company')}
+          placeholder="Company or organization name"
           className={cn(
-            'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
-            errors.topic && 'border-destructive focus-visible:ring-destructive'
+            'bg-white/5 border-white/10 text-white placeholder:text-slate-400 focus:border-cyan-400',
+            errors.company && 'border-red-400 focus:border-red-400'
           )}
           disabled={isSubmitting}
-        >
-          <option value="incident">🚨 Incident Response (24/7)</option>
-          <option value="compliance">✓ Regulatory Compliance</option>
-          <option value="contracts">📄 Contracts & Vendor Risk</option>
-          <option value="forensics">🔍 Digital Forensics</option>
-          <option value="disputes">⚖️ Disputes & Enforcement</option>
-          <option value="readiness">🛡️ Readiness Assessment</option>
-          <option value="partnership">🤝 Partnership Inquiry</option>
-          <option value="other">💬 Other</option>
-        </select>
-        {errors.topic && (
-          <p className="mt-1 text-sm text-destructive">{errors.topic.message}</p>
+        />
+        {errors.company && (
+          <p className="mt-1 text-sm text-red-400">{errors.company.message}</p>
         )}
       </div>
 
       {/* Message (Required) */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Message <span className="text-destructive">*</span>
+          Message <span className="text-red-400">*</span>
         </label>
         <Textarea
           id="message"
           {...register('message')}
           placeholder="Please describe your inquiry or situation. Do not include confidential information until we confirm representation."
           rows={6}
-          className={cn(errors.message && 'border-destructive focus-visible:ring-destructive')}
+          className={cn(
+            'bg-white/5 border-white/10 text-white placeholder:text-slate-400 focus:border-cyan-400',
+            errors.message && 'border-red-400 focus:border-red-400'
+          )}
           disabled={isSubmitting}
         />
         {errors.message && (
-          <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
+          <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
         )}
       </div>
 
-      {/* Confidentiality Notice */}
-      <Alert>
-        <AlertDescription className="text-sm">
-          <strong>Confidentiality Notice:</strong> Submitting this form does not create an
-          attorney-client relationship. Do not include confidential information until we confirm
-          representation. For urgent incidents, call our{' '}
-          <a href="tel:+40745304772" className="font-semibold underline">
-            24/7 hotline
-          </a>
-          .
-        </AlertDescription>
-      </Alert>
-
-      {/* Submit Button */}
-      <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+      {/* Submit Button with Hover Effects */}
+      <Button 
+        type="submit" 
+        size="lg" 
+        className="w-full bg-cyan-400 hover:bg-cyan-300 hover:scale-[1.02] text-slate-900 font-semibold shadow-lg border border-cyan-300 transition-all duration-200" 
+        disabled={isSubmitting}
+      >
         {isSubmitting ? (
           <>
             <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Sending...
+            Sending Message...
           </>
         ) : (
           <>
@@ -269,10 +191,19 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
         )}
       </Button>
 
+      {/* Single Confidentiality Notice */}
+      <Alert className="bg-white/5 border-white/10">
+        <AlertDescription className="text-sm text-slate-300">
+          <strong>Confidentiality Notice:</strong> Submitting this form does not create an
+          attorney-client relationship. Do not include confidential information until we confirm
+          representation via an engagement letter.
+        </AlertDescription>
+      </Alert>
+
       {/* Data Protection Notice */}
-      <p className="text-xs text-muted-foreground text-center">
+      <p className="text-xs text-slate-400 text-center">
         By submitting this form, you agree to our{' '}
-        <a href="/legal/privacy" className="underline hover:text-foreground">
+        <a href="/legal/privacy" className="underline hover:text-slate-300 transition-colors">
           Privacy Policy
         </a>
         . We process your data in accordance with GDPR.
@@ -280,4 +211,3 @@ export function ContactForm({ defaultTopic = 'other', className }: ContactFormPr
     </form>
   );
 }
-

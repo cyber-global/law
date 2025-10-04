@@ -5,19 +5,19 @@ import { CookieBanner } from '@/components/cookie-banner';
 import { Shield, Lock, Eye, FileText } from 'lucide-react';
 import type { Metadata } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How CyberGlobal Law collects, uses, and protects your personal data in accordance with GDPR and data protection laws.',
+  description: 'How CyberLegal collects, uses, and protects your personal data in accordance with GDPR and data protection laws.',
   alternates: {
     canonical: `${baseUrl}/legal/privacy`,
   },
   openGraph: {
-    title: 'Privacy Policy | CyberGlobal Law',
+    title: 'Privacy Policy | CyberLegal',
     description: 'How we protect your personal data in accordance with GDPR.',
     url: `${baseUrl}/legal/privacy`,
-    siteName: 'CyberGlobal Law',
+    siteName: 'CyberLegal',
     images: [
       {
         url: `${baseUrl}/api/og?title=Privacy Policy&subtitle=GDPR-compliant data protection&page=privacy`,
@@ -99,7 +99,7 @@ export default function PrivacyPage() {
             
             <section id="data-controller">
               <h2 className="font-display text-3xl font-bold">1. Data Controller</h2>
-              <p><strong>CyberGlobal Law</strong><br />
+              <p><strong>CyberLegal</strong><br />
               Constantin Brancusi 78<br />
               [City, Postal Code]<br />
               [Country]</p>
@@ -240,7 +240,7 @@ export default function PrivacyPage() {
                 <p className="mb-4">If you have questions, concerns, or requests regarding this Privacy Policy or our data practices:</p>
                 <p><strong>Email:</strong> <a href="mailto:nader.bakri@cybergl.com" className="text-primary hover:underline">nader.bakri@cybergl.com</a><br />
                 <strong>Phone:</strong> <a href="tel:+40745304772" className="text-primary hover:underline">+40 745 304 772</a><br />
-                <strong>Mail:</strong> CyberGlobal Law, Constantin Brancusi 78, Cluj-Napoca, Romania</p>
+                <strong>Mail:</strong> CyberGlobal Law LTD, Constantin Brancusi 78, Cluj-Napoca, Romania</p>
               </div>
             </section>
 

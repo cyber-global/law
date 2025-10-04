@@ -257,7 +257,7 @@ export async function sendConfirmationEmail(
   name: string,
   topic: ContactFormData['topic']
 ) {
-  const subject = 'Thank you for contacting CyberGlobal Law';
+  const subject = 'Thank you for contacting CyberLegal';
 
   const html = `
     <!DOCTYPE html>
@@ -275,12 +275,12 @@ export async function sendConfirmationEmail(
     </head>
     <body>
       <div class="header">
-        <h1 style="margin: 0; font-size: 24px;">CyberGlobal Law</h1>
+        <h1 style="margin: 0; font-size: 24px;">CyberLegal</h1>
       </div>
       <div class="content">
         <p>Dear ${name},</p>
         
-        <p>Thank you for contacting CyberGlobal Law. We have received your inquiry and will respond within <strong>1 business day</strong>.</p>
+        <p>Thank you for contacting CyberLegal. We have received your inquiry and will respond within <strong>1 business day</strong>.</p>
         
         ${topic === 'incident' ? `
         <div class="hotline">
@@ -293,13 +293,13 @@ export async function sendConfirmationEmail(
         
         <p>In the meantime, you may find these resources helpful:</p>
         <ul>
-          <li><a href="https://cybergloballaw.com/services">Our Services</a></li>
-          <li><a href="https://cybergloballaw.com/cybersecurity">EU Cyber Regulations Overview</a></li>
-          <li><a href="https://cybergloballaw.com/about">About CyberGlobal Law</a></li>
+          <li><a href="https://cyberlgl.com/services">Our Services</a></li>
+          <li><a href="https://cyberlgl.com/cybersecurity">EU Cyber Regulations Overview</a></li>
+          <li><a href="https://cyberlgl.com/about">About CyberLegal</a></li>
         </ul>
         
         <div class="footer">
-          <p><strong>CyberGlobal Law</strong><br>
+          <p><strong>CyberLegal</strong><br>
           Email: <a href="mailto:nader.bakri@cybergl.com">nader.bakri@cybergl.com</a><br>
           Phone: +40 745 304 772<br>
           24/7 Hotline: +40 745 304 772</p>

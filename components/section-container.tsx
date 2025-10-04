@@ -5,7 +5,7 @@ interface SectionContainerProps {
   children: ReactNode;
   className?: string;
   id?: string;
-  background?: 'default' | 'muted' | 'gradient';
+  background?: 'default' | 'muted' | 'gradient' | 'dark';
 }
 
 export function SectionContainer({
@@ -21,6 +21,7 @@ export function SectionContainer({
         'py-16 md:py-24',
         background === 'muted' && 'bg-muted/30',
         background === 'gradient' && 'bg-gradient-to-b from-background via-muted/20 to-background',
+        background === 'dark' && 'bg-slate-800/50',
         className
       )}
     >

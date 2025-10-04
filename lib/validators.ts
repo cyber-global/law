@@ -1,43 +1,21 @@
 import { z } from 'zod';
 
 /**
- * Contact form validation schema
+ * Simplified contact form validation schema
  */
 export const contactFormSchema = z.object({
   name: z
     .string()
     .min(2, 'Name must be at least 2 characters')
     .max(100, 'Name must be less than 100 characters'),
-  role: z
-    .string()
-    .max(100, 'Role must be less than 100 characters')
-    .optional(),
   company: z
     .string()
-    .max(100, 'Company must be less than 100 characters')
-    .optional(),
+    .min(2, 'Company must be at least 2 characters')
+    .max(100, 'Company must be less than 100 characters'),
   email: z
     .string()
     .email('Please enter a valid email address')
     .max(255, 'Email must be less than 255 characters'),
-  phone: z
-    .string()
-    .max(50, 'Phone number must be less than 50 characters')
-    .optional(),
-  jurisdiction: z
-    .string()
-    .max(100, 'Jurisdiction must be less than 100 characters')
-    .optional(),
-  topic: z.enum([
-    'incident',
-    'compliance',
-    'contracts',
-    'disputes',
-    'forensics',
-    'readiness',
-    'partnership',
-    'other',
-  ]),
   message: z
     .string()
     .min(10, 'Message must be at least 10 characters')

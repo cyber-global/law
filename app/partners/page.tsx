@@ -3,12 +3,13 @@ import { Footer } from '@/components/footer';
 import { SkipLink } from '@/components/skip-link';
 import { CookieBanner } from '@/components/cookie-banner';
 import { PartnerCard } from '@/components/partner-card';
-import { ContactForm } from '@/components/contact-form';
-import { Shield, Search, Landmark, CheckCircle } from 'lucide-react';
+import { Shield, Search, Landmark, CheckCircle, Calendar, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: 'Our Partners',
@@ -17,16 +18,16 @@ export const metadata: Metadata = {
     canonical: `${baseUrl}/partners`,
   },
   openGraph: {
-    title: 'Our Partners | CyberGlobal Law',
+    title: 'Our Partners | CyberLegal',
     description: 'Trusted MSSPs, forensic firms, and insurance partners for coordinated cyber-legal response.',
     url: `${baseUrl}/partners`,
-    siteName: 'CyberGlobal Law',
+    siteName: 'CyberLegal',
     images: [
       {
         url: `${baseUrl}/api/og?title=Our Partners&subtitle=Trusted MSSPs, forensic firms, and insurance partners&page=partners`,
         width: 1200,
         height: 630,
-        alt: 'CyberGlobal Law Partners',
+        alt: 'CyberLegal Partners',
       },
     ],
     locale: 'en_US',
@@ -35,6 +36,43 @@ export const metadata: Metadata = {
 };
 
 export default function PartnersPage() {
+  // Our trusted partners
+  const partners = [
+    {
+      name: 'CyberGlobal',
+      website: 'cybergl.com',
+      url: 'https://cybergl.com',
+      description: 'Global cybersecurity solutions and managed security services provider',
+      services: ['SOC/MDR Services', 'Incident Response', 'Threat Intelligence', 'Security Architecture'],
+      region: 'Global',
+      // Logo will be added from their website
+    },
+    {
+      name: 'Cube Enterprise',
+      website: 'cube-enterprise.com', 
+      url: 'https://cube-enterprise.com',
+      description: 'Enterprise security solutions and consulting services',
+      services: ['Enterprise Security', 'Risk Assessment', 'Compliance Consulting', 'Security Training'],
+      region: 'Europe',
+    },
+    {
+      name: 'CyberGlobal Bahrain',
+      website: 'cybergl.com/bh',
+      url: 'https://cybergl.com/bh/',
+      description: 'Regional cybersecurity expertise for Middle East operations',
+      services: ['Regional SOC', 'Local Incident Response', 'Regulatory Compliance', 'Cross-border Coordination'],
+      region: 'Middle East',
+    },
+    {
+      name: 'CT Defense', 
+      website: 'ctdefense.com',
+      url: 'https://ctdefense.com',
+      description: 'Specialized cyber defense and digital forensics capabilities',
+      services: ['Digital Forensics', 'Malware Analysis', 'Threat Hunting', 'Expert Testimony'],
+      region: 'Europe/US',
+    },
+  ];
+
   const partnerTypes = [
     {
       type: 'MSSPs',
@@ -150,39 +188,69 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* Partner Types */}
-        <section className="bg-muted/30 py-16 md:py-24">
+        {/* Our Trusted Partners */}
+        <section className="bg-slate-800/50 py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-8">
             <div className="mx-auto max-w-6xl">
-              <h2 className="mb-12 text-center font-display text-3xl font-bold md:text-4xl">
-                Partner Types
+              <h2 className="mb-6 text-center font-display text-3xl font-bold md:text-4xl text-white">
+                Our Trusted Partners
               </h2>
+              <p className="mb-12 text-center text-lg text-slate-300 max-w-3xl mx-auto">
+                We work with carefully selected partners who share our commitment to excellence, transparency, and rapid response across global markets.
+              </p>
 
-              <div className="grid gap-8 md:grid-cols-3">
-                {partnerTypes.map((partner) => {
-                  const Icon = partner.icon;
-                  return (
-                    <div
-                      key={partner.type}
-                      className="rounded-lg border border-border bg-background p-6"
-                    >
-                      <div className="mb-4 flex items-center gap-3">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <Icon className="h-6 w-6" />
-                        </div>
-                        <h3 className="font-display text-xl font-semibold">{partner.type}</h3>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                {partners.map((partner) => (
+                  <div
+                    key={partner.name}
+                    className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 hover:bg-white/10 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-4 mb-6">
+                      {/* Logo placeholder - will be updated with actual logos */}
+                      <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white/10 border border-white/20">
+                        <span className="text-2xl font-bold text-cyan-400">{partner.name.charAt(0)}</span>
                       </div>
-                      <ul className="space-y-2">
-                        {partner.services.map((service, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <CheckCircle className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                            <span>{service}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="font-display text-xl font-bold text-white">{partner.name}</h3>
+                          <Badge variant="outline" className="text-xs border-cyan-400/30 text-cyan-400">
+                            {partner.region}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center gap-2 text-slate-400 text-sm mb-3">
+                          <ExternalLink className="h-4 w-4" />
+                          <a 
+                            href={partner.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-cyan-400 transition-colors"
+                          >
+                            {partner.website}
+                          </a>
+                        </div>
+                        <p className="text-slate-300 text-sm leading-relaxed">
+                          {partner.description}
+                        </p>
+                      </div>
                     </div>
-                  );
-                })}
+
+                    {/* Services */}
+                    <div className="border-t border-white/10 pt-4">
+                      <h4 className="text-sm font-semibold text-white mb-3">Key Services:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {partner.services.map((service, idx) => (
+                          <Badge 
+                            key={idx} 
+                            variant="secondary" 
+                            className="text-xs bg-white/10 text-slate-300 border-white/10"
+                          >
+                            {service}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -240,24 +308,35 @@ export default function PartnersPage() {
           </div>
         </section>
 
-        {/* Become a Partner */}
-        <section className="bg-muted/30 py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-8">
-            <div className="mx-auto max-w-3xl">
-              <h2 className="mb-6 text-center font-display text-3xl font-bold md:text-4xl">
-                Become a Partner
+        {/* Partner with Us CTA */}
+        <section className="bg-gradient-to-br from-indigo-600 via-purple-600 to-cyan-500 py-16 md:py-24">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+          
+          <div className="container relative mx-auto px-4 md:px-8">
+            <div className="mx-auto max-w-4xl text-center text-white">
+              <h2 className="font-display text-3xl font-bold md:text-4xl lg:text-5xl mb-6">
+                Ready to Partner with Us?
               </h2>
-              <p className="mb-8 text-center text-lg text-muted-foreground">
-                We're always looking for high-quality technical and insurance partners who share our values of <strong>clarity, speed, and defensibility</strong>.
+              <p className="text-lg text-white/90 md:text-xl mb-8 max-w-2xl mx-auto">
+                We're always looking for high-quality technical and insurance partners who share our values of clarity, speed, and defensibility.
               </p>
 
-              <div className="rounded-2xl border border-border bg-background p-8">
-                <h3 className="mb-4 font-semibold">Partner Inquiry</h3>
-                <p className="mb-6 text-sm text-muted-foreground">
-                  If you're an MSSP, forensic firm, or insurer interested in collaboration, please reach out:
-                </p>
-                <ContactForm defaultTopic="partnership" />
+              <div className="flex justify-center">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl font-semibold px-8"
+                >
+                  <Link href="/contact?topic=partnership">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Discuss Partnership
+                  </Link>
+                </Button>
               </div>
+
+              <p className="mt-8 text-sm text-white/80">
+                <strong>Partnership Areas:</strong> MSSPs • Digital Forensics • Cyber Insurance • RegTech
+              </p>
             </div>
           </div>
         </section>

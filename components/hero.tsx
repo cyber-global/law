@@ -23,8 +23,8 @@ interface HeroProps {
 export function Hero({
   headline,
   subheadline,
-  primaryCTA = { text: 'Call the 24/7 Incident Hotline', href: 'tel:+40745304772' },
-  secondaryCTA = { text: 'Book a 30-min Consultation', href: '/contact#book' },
+  primaryCTA = { text: 'Book a Meeting', href: '/contact' },
+  secondaryCTA, // No secondary CTA
   credibilityChips = ['GDPR', 'NIS2', 'DORA', 'eIDAS2', 'Cross-border data', 'eDiscovery'],
 }: HeroProps) {
   // Respect user's motion preference
@@ -82,7 +82,7 @@ export function Hero({
       </div>
 
       {/* Content with animations */}
-      <div className="container relative mx-auto px-4 py-20 md:px-8 md:py-32 lg:py-40">
+      <div className="container relative mx-auto px-4 py-12 md:px-8 md:py-20 lg:py-24">
         <motion.div 
           className="mx-auto max-w-4xl text-center"
           initial="hidden"
@@ -106,8 +106,9 @@ export function Hero({
           </motion.p>
 
           {/* CTAs with fade-up */}
-          <motion.div 
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
+          {/* Single centered CTA */}
+          <motion.div
+            className="mt-10 flex justify-center"
             variants={fadeUpVariants}
           >
             <motion.div
@@ -117,28 +118,11 @@ export function Hero({
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-indigo-600 hover:bg-white/90 transition-all shadow-xl"
+                className="bg-white text-indigo-600 hover:bg-white/90 transition-all shadow-xl font-semibold px-8"
               >
                 <Link href={primaryCTA.href}>
-                  <Phone className="mr-2 h-5 w-5" />
-                  {primaryCTA.text}
-                </Link>
-              </Button>
-            </motion.div>
-            
-            <motion.div
-              whileHover={prefersReducedMotion ? {} : { scale: 1.05 }}
-              whileTap={prefersReducedMotion ? {} : { scale: 0.98 }}
-            >
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-white bg-white text-indigo-600 hover:bg-white/90 transition-all"
-              >
-                <Link href={secondaryCTA.href}>
                   <Calendar className="mr-2 h-5 w-5" />
-                  {secondaryCTA.text}
+                  {primaryCTA.text}
                 </Link>
               </Button>
             </motion.div>

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
   
   // Static pages
   const routes = [

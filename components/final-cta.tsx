@@ -1,10 +1,7 @@
 'use client';
 
-import { Phone, Calendar } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
-import Link from 'next/link';
-import { CalEmbed } from './cal-embed';
 
 export function FinalCTA() {
   return (
@@ -21,42 +18,22 @@ export function FinalCTA() {
             Whether you're facing an active incident or planning ahead, we're here to help.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
-            {/* Call Hotline */}
+          <div className="mt-10 flex justify-center">
+            {/* Book Consultation - Direct link to Cal.com */}
             <Button
               asChild
               size="lg"
-              className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl"
+              className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl font-semibold px-8"
             >
-              <Link href="tel:+40745304772">
-                <Phone className="mr-2 h-5 w-5" />
-                Call 24/7 Incident Hotline
-              </Link>
+              <a
+                href={`https://cal.com/${process.env.NEXT_PUBLIC_CALCOM_LINK || 'cyberglobal-law/30min'}?notes=Inquiry from homepage - General consultation`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Calendar className="mr-2 h-5 w-5" />
+                Book a Consultation
+              </a>
             </Button>
-
-            {/* Book Consultation - Opens Cal.com Modal */}
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-white bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all"
-                >
-                  <Calendar className="mr-2 h-5 w-5" />
-                  Book a Consultation
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-4xl max-h-[90vh] overflow-auto">
-                <div className="h-[600px]">
-                  <CalEmbed 
-                    variant="inline"
-                    prefill={{
-                      notes: 'Inquiry from homepage - General consultation',
-                    }}
-                  />
-                </div>
-              </DialogContent>
-            </Dialog>
           </div>
 
           <p className="mt-8 text-sm text-white/80">

@@ -7,7 +7,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Route Smoke Tests', () => {
   const routes = [
-    { path: '/', title: 'CyberGlobal Law' },
+    { path: '/', title: 'CyberLegal' },
     { path: '/about', title: 'About' },
     { path: '/cybersecurity', title: 'Cybersecurity' },
     { path: '/services', title: 'Services' },

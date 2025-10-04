@@ -2,13 +2,13 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { SkipLink } from '@/components/skip-link';
 import { CookieBanner } from '@/components/cookie-banner';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cybergloballaw.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
 
 export const metadata: Metadata = {
   title: 'Our Services',
@@ -17,16 +17,16 @@ export const metadata: Metadata = {
     canonical: `${baseUrl}/services`,
   },
   openGraph: {
-    title: 'Our Services | CyberGlobal Law',
+    title: 'Our Services | CyberLegal',
     description: 'Comprehensive cyber law services from 24/7 incident response to compliance, contracts, forensics, and disputes.',
     url: `${baseUrl}/services`,
-    siteName: 'CyberGlobal Law',
+    siteName: 'CyberLegal',
     images: [
       {
         url: `${baseUrl}/api/og?title=Our Services&subtitle=24/7 Incident Response • Compliance • Contracts • Forensics&page=services`,
         width: 1200,
         height: 630,
-        alt: 'CyberGlobal Law Services',
+        alt: 'CyberLegal Services',
       },
     ],
     locale: 'en_US',
@@ -208,23 +208,18 @@ export default function ServicesPage() {
                 Not sure which service you need?
               </h2>
               <p className="mt-4 text-lg text-white/90">
-                Call our 24/7 hotline or book a consultation to discuss your specific situation.
+                Book a consultation to discuss your specific legal needs and compliance requirements.
               </p>
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
+              <div className="mt-8 flex justify-center">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-white text-indigo-600 hover:bg-white/90"
+                  className="bg-white text-indigo-600 hover:bg-white/90 hover:scale-105 transition-all shadow-xl font-semibold px-8"
                 >
-                  <Link href="tel:+40745304772">Call 24/7 Hotline</Link>
-                </Button>
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-white bg-white text-indigo-600 hover:bg-white/90"
-                >
-                  <Link href="/contact">Book a Consultation</Link>
+                  <Link href="/contact">
+                    <Calendar className="mr-2 h-5 w-5" />
+                    Book a Consultation
+                  </Link>
                 </Button>
               </div>
             </div>

@@ -3,10 +3,9 @@
 import Link from 'next/link';
 import { Phone, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { HotlineBadge } from './hotline-badge';
-import { ThemeToggle } from './theme-toggle';
 import MegaMenu from './mega-menu';
 import { cn } from '@/lib/utils';
 
@@ -14,6 +13,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const mobileNavItems = [
+    { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Services' },
     { href: '/services#incident-response', label: '  → Incident Response' },
     { href: '/services#compliance', label: '  → Compliance' },
@@ -21,39 +21,41 @@ export function Header() {
     { href: '/services#forensics', label: '  → Forensics' },
     { href: '/services#disputes', label: '  → Disputes' },
     { href: '/cybersecurity', label: 'Cybersecurity' },
-    { href: '/about', label: 'About' },
     { href: '/partners', label: 'Partners' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/contact', label: 'Contact Us' },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10">
-      <div className="container flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-8">
+      <div className="container flex h-20 max-w-screen-2xl items-center px-4 md:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="font-display text-xl font-bold text-primary">
-            CyberGlobal<span className="text-accent">Law</span>
-          </div>
+        <Link href="/" className="flex items-center mr-8">
+          <Image 
+            src="/white logo no background.png"
+            alt="CyberLegal"
+            width={200}
+            height={60}
+            className="h-16 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Mega Menu */}
-        <MegaMenu />
+        <div className="hidden md:flex flex-1">
+          <MegaMenu />
+        </div>
 
-        {/* Desktop CTAs */}
-        <div className="hidden md:flex md:items-center md:gap-4">
-          <ThemeToggle />
-          <HotlineBadge />
-          <Button asChild size="sm">
+        {/* Desktop CTA - Aligned with content */}
+        <div className="hidden md:flex md:items-center ml-8">
+          <Button asChild size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-semibold shadow-lg border border-cyan-300">
             <Link href="/contact">
-              <Phone className="mr-2 h-4 w-4" />
-              Call 24/7
+              Business Enquiries
             </Link>
           </Button>
         </div>
 
         {/* Mobile Menu - Simple list (no mega menu on mobile) */}
         <div className="flex items-center gap-2 md:hidden">
-          <HotlineBadge compact />
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" aria-label="Toggle menu">
@@ -78,15 +80,9 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
-                <div className="mt-6 pt-6 border-t border-slate-200 dark:border-white/10 flex flex-col gap-3">
-                  <Button asChild className="w-full">
-                    <Link href="tel:+40745304772">
-                      <Phone className="mr-2 h-4 w-4" />
-                      Call 24/7 Hotline
-                    </Link>
-                  </Button>
-                  <Button asChild variant="outline" className="w-full border-slate-200 dark:border-white/10">
-                    <Link href="/contact">Book Consultation</Link>
+                <div className="mt-6 pt-6 border-t border-slate-200 dark:border-white/10">
+                  <Button asChild className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-semibold shadow-lg">
+                    <Link href="/contact">Business Enquiries</Link>
                   </Button>
                 </div>
               </nav>

@@ -27,7 +27,6 @@ export { CalModal } from './cal-modal';
 
 // UI Components
 export { HotlineBadge } from './hotline-badge';
-export { ThemeToggle } from './theme-toggle';
 export { ThemeProvider } from './theme-provider';
 export { AnalyticsProvider } from './analytics-provider';
 

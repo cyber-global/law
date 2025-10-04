@@ -85,14 +85,10 @@ export default function HomePage() {
         {/* Hero Section */}
         <Hero
           headline="When cyber risk turns legal, speed and defensibility matter."
-          subheadline="CyberGlobal Law helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
+          subheadline="CyberLegal helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
           primaryCTA={{
-            text: 'Call the 24/7 Incident Hotline',
-            href: 'tel:+40745304772',
-          }}
-          secondaryCTA={{
-            text: 'Book a 30-min Consultation',
-            href: '/contact#book',
+            text: 'Book a Meeting',
+            href: '/contact',
           }}
           credibilityChips={['GDPR', 'NIS2', 'DORA', 'eIDAS2', 'Cross-border data', 'eDiscovery']}
         />
