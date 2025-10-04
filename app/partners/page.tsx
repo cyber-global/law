@@ -6,6 +6,7 @@ import { PartnerCard } from '@/components/partner-card';
 import { Shield, Search, Landmark, CheckCircle, Calendar, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
@@ -36,21 +37,22 @@ export const metadata: Metadata = {
 };
 
 export default function PartnersPage() {
-  // Our trusted partners
+  // Our trusted partners with actual logos
   const partners = [
     {
       name: 'CyberGlobal',
       website: 'cybergl.com',
       url: 'https://cybergl.com',
+      logo: '/partners/cyberglobal.svg',
       description: 'Global cybersecurity solutions and managed security services provider',
       services: ['SOC/MDR Services', 'Incident Response', 'Threat Intelligence', 'Security Architecture'],
       region: 'Global',
-      // Logo will be added from their website
     },
     {
       name: 'Cube Enterprise',
       website: 'cube-enterprise.com', 
       url: 'https://cube-enterprise.com',
+      logo: '/partners/cube enterprise.webp',
       description: 'Enterprise security solutions and consulting services',
       services: ['Enterprise Security', 'Risk Assessment', 'Compliance Consulting', 'Security Training'],
       region: 'Europe',
@@ -59,6 +61,7 @@ export default function PartnersPage() {
       name: 'CyberGlobal Bahrain',
       website: 'cybergl.com/bh',
       url: 'https://cybergl.com/bh/',
+      logo: '/partners/cyberglobal bahrain.svg',
       description: 'Regional cybersecurity expertise for Middle East operations',
       services: ['Regional SOC', 'Local Incident Response', 'Regulatory Compliance', 'Cross-border Coordination'],
       region: 'Middle East',
@@ -67,6 +70,7 @@ export default function PartnersPage() {
       name: 'CT Defense', 
       website: 'ctdefense.com',
       url: 'https://ctdefense.com',
+      logo: '/partners/ctdefense.svg',
       description: 'Specialized cyber defense and digital forensics capabilities',
       services: ['Digital Forensics', 'Malware Analysis', 'Threat Hunting', 'Expert Testimony'],
       region: 'Europe/US',
@@ -206,9 +210,15 @@ export default function PartnersPage() {
                     className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 hover:bg-white/10 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4 mb-6">
-                      {/* Logo placeholder - will be updated with actual logos */}
-                      <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white/10 border border-white/20">
-                        <span className="text-2xl font-bold text-cyan-400">{partner.name.charAt(0)}</span>
+                      {/* Partner Logo */}
+                      <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-white/95 p-3 border-2 border-white/30 shadow-lg hover:scale-105 transition-transform duration-300">
+                        <Image
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-contain filter brightness-100"
+                        />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
