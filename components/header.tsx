@@ -27,31 +27,35 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white dark:bg-slate-900 border-slate-200 dark:border-white/10">
-      <div className="container flex h-20 max-w-screen-2xl items-center px-4 md:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center mr-8">
-          <Image 
-            src="/white logo no background.png"
-            alt="CyberLegal"
-            width={200}
-            height={60}
-            className="h-16 w-auto"
-            priority
-          />
-        </Link>
+      <div className="container flex h-20 max-w-screen-2xl items-center justify-center px-4 md:px-8">
+        {/* Logo - Left side */}
+        <div className="flex-1 flex justify-start">
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/white logo no background.png"
+              alt="CyberLegal"
+              width={200}
+              height={60}
+              className="h-16 w-auto"
+              priority
+            />
+          </Link>
+        </div>
 
-        {/* Desktop Mega Menu */}
-        <div className="hidden md:flex flex-1">
+        {/* Desktop Mega Menu - Center */}
+        <div className="hidden md:flex">
           <MegaMenu />
         </div>
 
-        {/* Desktop CTA - Aligned with content */}
-        <div className="hidden md:flex md:items-center ml-8">
-          <Button asChild size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-semibold shadow-lg border border-cyan-300">
-            <Link href="/contact">
-              Business Enquiries
-            </Link>
-          </Button>
+        {/* Desktop CTA - Right side */}
+        <div className="flex-1 flex justify-end">
+          <div className="hidden md:flex md:items-center">
+            <Button asChild size="sm" className="bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-semibold shadow-lg border border-cyan-300">
+              <Link href="/contact">
+                Business Enquiries
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Menu - Simple list (no mega menu on mobile) */}

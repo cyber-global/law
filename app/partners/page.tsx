@@ -44,7 +44,7 @@ export default function PartnersPage() {
       website: 'cybergl.com',
       url: 'https://cybergl.com',
       logo: '/partners/cyberglobal.svg',
-      logoType: 'dark', // Assume dark logo, use light background
+      logoType: 'light', // Use dark background for visibility
       description: 'Global cybersecurity solutions and managed security services provider',
       services: ['SOC/MDR Services', 'Incident Response', 'Threat Intelligence', 'Security Architecture'],
       region: 'Global',
@@ -54,7 +54,7 @@ export default function PartnersPage() {
       website: 'cube-enterprise.com', 
       url: 'https://cube-enterprise.com',
       logo: '/partners/cube enterprise.webp',
-      logoType: 'mixed', // Mixed colors, use neutral background
+      logoType: 'light', // Use dark background for visibility
       description: 'Enterprise security solutions and consulting services',
       services: ['Enterprise Security', 'Risk Assessment', 'Compliance Consulting', 'Security Training'],
       region: 'Europe',
@@ -64,7 +64,7 @@ export default function PartnersPage() {
       website: 'cybergl.com/bh',
       url: 'https://cybergl.com/bh/',
       logo: '/partners/cyberglobal bahrain.svg',
-      logoType: 'dark', // Assume dark logo, use light background
+      logoType: 'light', // Use dark background for visibility
       description: 'Regional cybersecurity expertise for Middle East operations',
       services: ['Regional SOC', 'Local Incident Response', 'Regulatory Compliance', 'Cross-border Coordination'],
       region: 'Middle East',
@@ -74,7 +74,7 @@ export default function PartnersPage() {
       website: 'ctdefense.com',
       url: 'https://ctdefense.com',
       logo: '/partners/ctdefense.svg',
-      logoType: 'light', // Assume light/white logo, use dark background
+      logoType: 'light', // Use dark background for visibility
       description: 'Specialized cyber defense and digital forensics capabilities',
       services: ['Digital Forensics', 'Malware Analysis', 'Threat Hunting', 'Expert Testimony'],
       region: 'Europe/US',
