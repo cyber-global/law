@@ -1,4 +1,10 @@
 
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { SkipLink } from '@/components/skip-link';
+import { CookieBanner } from '@/components/cookie-banner';
+import { Hero } from '@/components/hero';
+
 export default function HomePage() {
   return (
     <>
@@ -10,12 +16,8 @@ export default function HomePage() {
           headline="When cyber risk turns legal, speed and defensibility matter."
           subheadline="CyberLegal helps CISOs and General Counsel manage incidents, regulators, and contracts across borders—24/7."
           primaryCTA={{
-            text: 'Call the 24/7 Incident Hotline',
-            href: 'tel:+0000000000',
-          }}
-          secondaryCTA={{
-            text: 'Book a 30-min Consultation',
-            href: '/contact#book',
+            text: 'Book a Meeting',
+            href: '/contact',
           }}
           credibilityChips={['GDPR', 'NIS2', 'DORA', 'eIDAS2', 'Cross-border data', 'eDiscovery']}
         />
