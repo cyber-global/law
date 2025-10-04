@@ -37,13 +37,14 @@ export const metadata: Metadata = {
 };
 
 export default function PartnersPage() {
-  // Our trusted partners with actual logos
+  // Our trusted partners with actual logos and contrast specifications
   const partners = [
     {
       name: 'CyberGlobal',
       website: 'cybergl.com',
       url: 'https://cybergl.com',
       logo: '/partners/cyberglobal.svg',
+      logoType: 'dark', // Assume dark logo, use light background
       description: 'Global cybersecurity solutions and managed security services provider',
       services: ['SOC/MDR Services', 'Incident Response', 'Threat Intelligence', 'Security Architecture'],
       region: 'Global',
@@ -53,6 +54,7 @@ export default function PartnersPage() {
       website: 'cube-enterprise.com', 
       url: 'https://cube-enterprise.com',
       logo: '/partners/cube enterprise.webp',
+      logoType: 'mixed', // Mixed colors, use neutral background
       description: 'Enterprise security solutions and consulting services',
       services: ['Enterprise Security', 'Risk Assessment', 'Compliance Consulting', 'Security Training'],
       region: 'Europe',
@@ -62,6 +64,7 @@ export default function PartnersPage() {
       website: 'cybergl.com/bh',
       url: 'https://cybergl.com/bh/',
       logo: '/partners/cyberglobal bahrain.svg',
+      logoType: 'dark', // Assume dark logo, use light background
       description: 'Regional cybersecurity expertise for Middle East operations',
       services: ['Regional SOC', 'Local Incident Response', 'Regulatory Compliance', 'Cross-border Coordination'],
       region: 'Middle East',
@@ -71,6 +74,7 @@ export default function PartnersPage() {
       website: 'ctdefense.com',
       url: 'https://ctdefense.com',
       logo: '/partners/ctdefense.svg',
+      logoType: 'light', // Assume light/white logo, use dark background
       description: 'Specialized cyber defense and digital forensics capabilities',
       services: ['Digital Forensics', 'Malware Analysis', 'Threat Hunting', 'Expert Testimony'],
       region: 'Europe/US',
@@ -210,15 +214,38 @@ export default function PartnersPage() {
                     className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 hover:bg-white/10 transition-all duration-300"
                   >
                     <div className="flex items-start gap-4 mb-6">
-                      {/* Partner Logo */}
-                      <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-white/95 p-3 border-2 border-white/30 shadow-lg hover:scale-105 transition-transform duration-300">
+                      {/* Partner Logo - Adaptive contrast solution */}
+                      <div className={`group relative flex h-20 w-20 items-center justify-center rounded-xl p-3 border-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 ${
+                        partner.logoType === 'light' 
+                          ? 'bg-slate-800 border-slate-600' // Dark background for light/white logos
+                          : partner.logoType === 'mixed'
+                          ? 'bg-gradient-to-br from-slate-50 to-slate-100 border-slate-200'  // Gradient for colored logos  
+                          : 'bg-gradient-to-br from-slate-100 to-slate-200 border-slate-300' // Light gradient for dark logos
+                      }`}>
                         <Image
                           src={partner.logo}
                           alt={`${partner.name} logo`}
                           width={80}
                           height={80}
-                          className="w-full h-full object-contain filter brightness-100"
+                          className={`w-full h-full object-contain transition-transform group-hover:scale-105 ${
+                            partner.logoType === 'light'
+                              ? 'filter brightness-110 contrast-110' // Enhance light logos on dark background
+                              : partner.logoType === 'mixed' 
+                              ? 'filter contrast-130 saturate-125'   // Enhance mixed logos
+                              : 'filter contrast-125 brightness-90'  // Ensure dark logos show well
+                          }`}
                         />
+                        {/* Subtle definition ring */}
+                        <div className={`absolute inset-1 rounded-lg border pointer-events-none ${
+                          partner.logoType === 'light' ? 'border-white/10' : 'border-black/5'
+                        }`}></div>
+                        
+                        {/* Company name label on hover */}
+                        <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                          <div className="bg-slate-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                            {partner.name}
+                          </div>
+                        </div>
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
