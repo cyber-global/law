@@ -5,6 +5,7 @@ import { CookieBanner } from '@/components/cookie-banner';
 import { Shield, Globe, Users, FileText, Award, CheckCircle, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import Link from 'next/link';
+import Image from 'next/image';
 import type { Metadata } from 'next';
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://cyberlgl.com';
@@ -174,6 +175,40 @@ export default function AboutPage() {
                 <p className="text-sm text-slate-300">
                   <strong>Insurers & Brokers:</strong> Cyber insurance carriers and brokers coordinating panel counsel and claims support
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Founder */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-8">
+            <div className="mx-auto max-w-5xl">
+              <h2 className="mb-12 text-center font-display text-3xl font-bold md:text-4xl">
+                Our Founder
+              </h2>
+
+              <div className="grid gap-8 md:grid-cols-2 md:gap-12 items-center">
+                <div className="order-2 md:order-1">
+                  <h3 className="mb-2 font-display text-2xl font-bold">Nader Bakri</h3>
+                  <p className="mb-4 text-lg text-primary font-semibold">Founder, CyberLegal</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Nader Bakri is an experienced (7+ years) cyber law counsel who helps organizations turn complex security events into clear, defensible legal outcomes. At CyberLegal he leads incident response and breach counsel, coordinating privileged fact-finding, notification strategy (data subjects, partners, authorities), and regulator/CSIRT engagement. His advisory work covers GDPR, NIS2, DORA, and eIDAS2 readiness; contract frameworks (DPAs, SCCs, cloud terms, SaaS SLAs); cross-border transfers and SCCs with TIAs; and legally sound digital forensics, litigation holds, and eDiscovery. He routinely supports insurance coverage analysis and negotiations, aiming to reduce penalties, accelerate resolution, and document a regulator-ready compliance posture.
+                  </p>
+                </div>
+
+                <div className="order-1 md:order-2 flex justify-center">
+                  <div className="relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl border border-border shadow-xl">
+                    <Image
+                      src="/nader bakri - founder.jpeg"
+                      alt="Nader Bakri, Founder of CyberLegal"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
