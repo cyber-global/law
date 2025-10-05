@@ -117,6 +117,7 @@ Priority: ${data.topic === 'incident' ? 'HIGH - Incident Response' : 'Normal'}
 
   try {
     // Send primary email
+    console.log('📤 Sending email FROM:', FROM_EMAIL, 'TO:', TO_EMAIL);
     const response = await resend.emails.send({
       from: FROM_EMAIL,
       to: TO_EMAIL,
@@ -126,8 +127,11 @@ Priority: ${data.topic === 'incident' ? 'HIGH - Incident Response' : 'Normal'}
       replyTo: data.email,
     });
 
+    console.log('📧 Resend API Response:', JSON.stringify(response, null, 2));
+
     // Send archive copy (optional)
     if (ARCHIVE_EMAIL) {
+      console.log('📤 Sending archive copy to:', ARCHIVE_EMAIL);
       await resend.emails.send({
         from: FROM_EMAIL,
         to: ARCHIVE_EMAIL,
@@ -139,7 +143,8 @@ Priority: ${data.topic === 'incident' ? 'HIGH - Incident Response' : 'Normal'}
 
     return { success: true, id: response.data?.id };
   } catch (error) {
-    console.error('Failed to send contact email:', error);
+    console.error('❌ Failed to send contact email:', error);
+    console.error('Error details:', JSON.stringify(error, null, 2));
     throw new Error('Failed to send email');
   }
 }

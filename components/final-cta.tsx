@@ -1,6 +1,6 @@
 'use client';
 
-import { Calendar, Phone } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
@@ -47,7 +47,7 @@ export function FinalCTA() {
                 — Nader Bakri, Founder
               </p>
 
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="mt-8 flex justify-center lg:justify-start">
                 {/* Book Consultation */}
                 <Button
                   asChild
@@ -61,19 +61,6 @@ export function FinalCTA() {
                   >
                     <Calendar className="mr-2 h-5 w-5" />
                     Book a Consultation
-                  </a>
-                </Button>
-
-                {/* Emergency Hotline */}
-                <Button
-                  asChild
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-white/30 bg-white/10 text-white hover:bg-white/20 hover:scale-105 transition-all backdrop-blur-sm font-semibold px-8"
-                >
-                  <a href="tel:+40745304772">
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call 24/7 Hotline
                   </a>
                 </Button>
               </div>
